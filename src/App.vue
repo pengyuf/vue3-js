@@ -1,49 +1,64 @@
 <script setup>
-import { storeToRefs } from "pinia";
-import { useCounterStore } from "./store/index"
+import RefComp from './components/RefComp.vue'
+import ReactiveComp from './components/ReactiveComp.vue'
+import WatchComp from './components/WatchComp.vue'
+import TemplateRef from './components/TemplateRef.vue'
+import CmpProps from './components/CmpProps.vue'
+import CmpEvent from './components/CmpEvent.vue'
+import CmpModel from './components/CmpModel.vue'
+import Child from './components/Child.vue'
+import CmpSlot from './components/CmpSlot.vue'
+import CmpProvide from './components/CmpProvide.vue'
+import CmpButton from './components/CmpButton.vue'
+import MyButton from './components/MyButton.vue'
+import { ref } from 'vue'
+import { Delete, Edit, Search, Share, Upload } from '@element-plus/icons-vue'
 
-
-const store = useCounterStore()
-
-store.$subscribe((mutation, state) => {
-  console.log('tore.$subscribe')
-})
-
-function changeAll() {
-  // store.$patch({
-  //   count:1,
-  //   name:'test'
-  // })
-  store.$patch((state) => {
-    state.name = 'test'
-  })
+const objProp = {
+  message: 'testMessage'
 }
+
+function testFn() {
+  console.log('testFn')
+}
+
+function myDiyFn(e) {
+  console.log('myDiyFn', e)
+}
+
+function clickFather() {
+  console.log('clickFather')
+}
+
+
+const countModel = ref(0)
 
 </script>
 
 <template>
   <div>
-    <button @click="() => store.name = 'pneg'">改变name</button>
-    <button @click="changeAll">改变整个store</button>
-    <div>
-      {{ store.doubleCountOne }}
-    </div>
+    <!-- <GlobalChild /> -->
+    <!-- <RefComp/> -->
+    <!-- <ReactiveComp /> -->
+    <!-- <WatchComp/> -->
+    <!-- <TemplateRef /> -->
+    <!-- <CmpProps strProp="testStrProp" :objProp="objProp" :fnProp="testFn" /> -->
+    <!-- <CmpEvent @diyFn="myDiyFn" /> -->
+    <!-- <CmpModel v-model="countModel" /> -->
+    <!-- <Child style="color: red;" @click="clickFather" /> -->
+    <!-- <CmpSlot>
+      <template #header>
+        headerSlot
+      </template>
+      <template #bottom>
+        bottomSlot
+      </template>
+    </CmpSlot> -->
+    <!-- <CmpProvide/> -->
+    <!-- <CmpButton/>
+    <MyButton type="danger" /> -->
+    <el-button tag="a" href='https://github.com/element-plus/element-plus'>primary</el-button>
   </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style scoped></style>

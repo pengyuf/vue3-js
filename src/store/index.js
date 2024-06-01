@@ -1,9 +1,7 @@
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 
-export const useStore = defineStore('main', {
 
-})
 
 // 选项式API写法
 export const useCounterStore = defineStore('counter',{
@@ -25,11 +23,11 @@ export const useCounterStore = defineStore('counter',{
     }
 })
 
-export const useStore = defineStore('main',{
-    getters:{
-        getUserById:(state)=>{
-            return (userId)=>state.users.find((user)=>user.id === userId)
-        }
-    }
-})
+// export const useStore = defineStore('main',{
+//     getters:{
+//         getUserById:(state)=>{
+//             return (userId)=>state.users.find((user)=>user.id === userId)
+//         }
+//     }
+// })
 
